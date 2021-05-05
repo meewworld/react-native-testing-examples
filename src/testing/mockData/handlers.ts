@@ -1,4 +1,4 @@
-import {rest} from 'msw'
+import {rest} from 'msw';
 
 export const handlers = [
   rest.get(
@@ -15,7 +15,7 @@ export const handlers = [
             image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASw',
           },
         ]),
-      )
+      );
     },
   ),
-]
+];

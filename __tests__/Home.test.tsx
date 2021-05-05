@@ -1,21 +1,21 @@
-import React from 'react'
-import {fireEvent, render, waitFor} from '@testing-library/react-native'
-import App from '../src/components/App'
-import {expect, it, jest} from '@jest/globals'
+import React from 'react';
+import {fireEvent, render, waitFor} from '@testing-library/react-native';
+import App from '../src/components/App';
 //mocking async storage module
-const mockedSetItem = jest.fn()
+const mockedSetItem = jest.fn();
+
 jest.mock('@react-native-community/async-storage', () => ({
   setItem: mockedSetItem,
-}))
+}));
 
 it('renders/navigates throughout app screens', async () => {
-  const {getByText} = render(<App />)
-  const homeText = getByText(/home/i)
-  expect(homeText).not.toBeNull()
-  fireEvent.press(getByText(/counter/i))
+  const {getByText} = render(<App />);
+  const homeText = getByText(/home/i);
+  expect(homeText).toBeDefined();
+  fireEvent.press(getByText('Counter'));
 
   await waitFor(() => {
-    const counterText = getByText(/Current count:/i)
-    expect(counterText.props.children).toEqual(['Current count: ', 0])
-  })
-})
+    const counterText = getByText(/Current count:/i);
+    expect(counterText).toHaveProp('children', ['Current count: ', 0]);
+  });
+});

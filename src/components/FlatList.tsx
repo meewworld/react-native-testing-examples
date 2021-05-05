@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native'
+import React, {useState} from 'react';
+import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
 const DATA = [
   'Pizza',
@@ -12,7 +12,7 @@ const DATA = [
   'Coke',
   'Beer',
   'Cheese Cake',
-]
+];
 
 const EXTRA_DATA = [
   'Pancakes',
@@ -23,35 +23,37 @@ const EXTRA_DATA = [
   'Nep Shrimps',
   'Soda',
   'Cheesy Mushroom',
-]
+];
 
 const Item = ({title}: {title: string}) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
   </View>
-)
+);
 
 export default () => {
-  const [refreshing, setRefreshing] = useState(false)
-  const [data, setData] = useState(DATA)
-  const [loadingMore, setLoadingMore] = useState(false)
+  const [refreshing, setRefreshing] = useState(false);
+  const [data, setData] = useState(DATA);
+  const [loadingMore, setLoadingMore] = useState(false);
   const onRefresh = () => {
-    setRefreshing(true)
-    setData([])
+    setRefreshing(true);
+    setData([]);
     setTimeout(() => {
-      setRefreshing(false)
-      setData(DATA)
-    }, 2000)
-  }
+      setRefreshing(false);
+      setData(DATA);
+    }, 2000);
+  };
 
   const onEndReached = () => {
-    if (data.length > 15) return null
-    setLoadingMore(true)
+    if (data.length > 15) {
+      return null;
+    }
+    setLoadingMore(true);
     setTimeout(() => {
-      setData([...data, ...EXTRA_DATA])
-      setLoadingMore(false)
-    }, 2000)
-  }
+      setData([...data, ...EXTRA_DATA]);
+      setLoadingMore(false);
+    }, 2000);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -68,17 +70,17 @@ export default () => {
       />
       <LoadingMore isEnabled={loadingMore} />
     </SafeAreaView>
-  )
-}
+  );
+};
 
 const LoadingMore = ({isEnabled}: {isEnabled: boolean}) => {
-  const innerText = isEnabled && 'Loading More Dishes...'
+  const innerText = isEnabled && 'Loading More Dishes...';
   return (
     <View style={{paddingVertical: 12}}>
       <Text>{innerText}</Text>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -97,4 +99,4 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
   },
-})
+});

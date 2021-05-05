@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Modal, Pressable, StyleSheet, Text, View} from 'react-native'
+import React, {useState} from 'react';
+import {Modal, Pressable, StyleSheet, Text, View} from 'react-native';
 
 export default () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -15,7 +15,7 @@ export default () => {
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Hello World!</Text>
             <Pressable
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+              style={{...styles.openButton, backgroundColor: '#2196F3'}}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
@@ -41,40 +41,40 @@ export default () => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5
+    elevation: 5,
   },
   openButton: {
     borderRadius: 8,
     padding: 6,
     margin: 6,
-    backgroundColor: "#9ef8d4",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: '#9ef8d4',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });

@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   preset: 'react-native',
@@ -13,4 +13,5 @@ module.exports = {
       '<rootDir>/assetsTransformer.js',
     '\\.(css|less)$': '<rootDir>/assetsTransformer.js',
   },
-}
+  moduleFileExtensions: ['ts', 'tsx', 'js'],
+};

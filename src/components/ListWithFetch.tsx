@@ -1,29 +1,29 @@
-import React, {useEffect, useState} from 'react'
-import {ActivityIndicator, Image, StyleSheet, Text, View} from 'react-native'
-import {Colors} from 'react-native/Libraries/NewAppScreen'
-import axios from 'axios'
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, Image, StyleSheet, Text, View} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import axios from 'axios';
 
 export default () => {
-  const [flavorsData, setFlavorsData] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [hasError, setHasError] = useState(false)
+  const [flavorsData, setFlavorsData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    ;(async () => {
-      setLoading(true)
+    (async () => {
+      setLoading(true);
       try {
         const response = await axios.get(
           'https://4ec38857-2800-4f07-838e-535a78cf7d51.mock.pstmn.io/flavors',
-        )
+        );
         // @ts-ignore
-        setFlavorsData(response.data)
+        setFlavorsData(response.data);
       } catch (e) {
-        setHasError(true)
+        setHasError(true);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    })()
-  }, [])
+    })();
+  }, []);
 
   return (
     <View style={styles.body}>
@@ -52,8 +52,8 @@ export default () => {
         </View>
       ))}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   body: {
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
   errorContainer: {backgroundColor: '#C63939', padding: 16, borderRadius: 6},
   flavorContainer: {alignItems: 'center', margin: 8},
   image: {width: 100, height: 100},
-})
+});

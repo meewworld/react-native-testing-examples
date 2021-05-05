@@ -1,11 +1,11 @@
-import React from 'react'
-import '@testing-library/jest-native/extend-expect'
-import {jest} from '@jest/globals'
-import {server} from './src/test/mocks/server'
+import * as React from 'react';
+import '@testing-library/jest-native';
+import {jest} from '@jest/globals';
+import {server} from './src/testing/mockData/server';
 
-jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper')
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 jest.mock('react-native-gesture-handler', () => {
-  const View = require('react-native/Libraries/Components/View/View')
+  const View = require('react-native/Libraries/Components/View/View');
   return {
     Swipeable: View,
     DrawerLayout: View,
@@ -35,25 +35,25 @@ jest.mock('react-native-gesture-handler', () => {
     FlatList: View,
     gestureHandlerRootHOC: () => null,
     Directions: {},
-  }
-})
+  };
+});
 
 //establish api mocking before all tests
-beforeAll(() => server.listen())
+beforeAll(() => server.listen());
 
 beforeEach(() => {
   global.fetch = jest.fn((...args) => {
-    console.warn('global.fetch needs to be mocked in tests', ...args)
-    throw new Error('global.fetch needs to be mocked in tests')
-  })
-})
+    console.warn('global.fetch needs to be mocked in tests', ...args);
+    throw new Error('global.fetch needs to be mocked in tests');
+  });
+});
 
 //clean up after the tests are finished
-afterAll(() => server.close())
+afterAll(() => server.close());
 
 afterEach(() => {
-  global.fetch.mockRestore()
+  global.fetch.mockRestore();
   //reset any requests handlers that we may add during the tests,
   //so they don't affect other tests.
-  server.resetHandlers()
-})
+  server.resetHandlers();
+});

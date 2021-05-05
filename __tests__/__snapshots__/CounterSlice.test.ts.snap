@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CounterSlice reducer correctly decrements counter value on action "decrement" 1`] = `
+Object {
+  "value": -1,
+}
+`;
+
+exports[`CounterSlice reducer correctly increments counter value on action "increment" 1`] = `
+Object {
+  "value": 1,
+}
+`;
+
+exports[`CounterSlice reducer should return the initial state on first run 1`] = `
+Object {
+  "value": 0,
+}
+`;

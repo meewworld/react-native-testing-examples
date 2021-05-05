@@ -1,4 +1,4 @@
-import {View} from 'react-native'
+import {View} from 'react-native';
 
 export default {
   Swipeable: View,
@@ -29,4 +29,4 @@ export default {
   FlatList: View,
   gestureHandlerRootHOC: jest.fn(),
   Directions: {},
-}
+};

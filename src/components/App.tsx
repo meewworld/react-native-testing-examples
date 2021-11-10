@@ -18,14 +18,14 @@ export const routes: Record<string, string> = {
   VIDEO: 'Video',
   MODAL: 'Modal',
   FLATLIST: 'FlatList',
-  LIST_WITH_FETCH: 'ListWithFetch',
+  // LIST_WITH_FETCH: 'ListWithFetch',
   TAB_NAVIGATOR: 'TabNavigator',
 };
 export default () => {
   return (
     <>
       <Provider store={store}>
-        <ThemeProvider initialTheme={'dark'}>
+        <ThemeProvider>
           <NavigationContainer>
             <Stack.Navigator initialRouteName={routes.HOME}>
               <Stack.Screen name={routes.HOME} component={screens.Home} />
@@ -48,10 +48,12 @@ export default () => {
                 name={routes.FLATLIST}
                 component={screens.FlatList}
               />
-              <Stack.Screen
-                name={routes.LIST_WITH_FETCH}
-                component={screens.ListWithFetch}
-              />
+              {
+                // <Stack.Screen
+                //   name={routes.LIST_WITH_FETCH}
+                //   component={screens.ListWithFetch}
+                // />
+              }
               <Stack.Screen
                 name={routes.TAB_NAVIGATOR}
                 component={screens.TabNavigator}

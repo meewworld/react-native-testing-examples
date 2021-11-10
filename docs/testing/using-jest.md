@@ -13,6 +13,12 @@ Jest provides tools to analyse how much of the code has been covered by tests wh
 yarn test:coverage
 ```
 
+## Testing Specific File
+Test specific file by writing the name of the file. It will match all files starting with "counter"
+```
+  yarn test counter
+```
+
 ## Watchman
 Watchman is a tool that is looking for changes in the filesystem. This can be used when running tests to auto execute tests whenever a change is made to source files. It is applied by giving the "watch" or "watchAll" flag.
 
